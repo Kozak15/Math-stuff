@@ -100,4 +100,53 @@ def divide_poly(p1,p2):
         lst_2.append(int(item))
     if lst_2 == [0]:
         lst_2 = []
+
     return (tuple(lst_1),tuple(lst_2))
+
+#Collatz conjecture
+#Collatz operator
+def collatz(n):
+       if n % 2 == 0:
+         return n // 2
+       else:
+         return 3 * n + 1
+#Stopping time function
+def stopping_time(n):
+    steps = 0
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        steps += 1
+    return steps
+#Maximum number reached in the sequence
+def max_num_reached(n):
+    max_num_reached = n
+    while n != 1:
+        if n % 2 == 0:
+            n = n/2
+        else:
+            n = 3 * n + 1
+        max_num_reached = max(n , max_num_reached)
+    return max_num_reached
+#Number with the maximum stopping time for numbers up to n
+def max_stopping_time(n):
+    max_steps = 0
+    new_n = 1
+    for x in range(1, n + 1):
+        steps = stopping_time(x)
+        if steps > max_steps:
+            max_steps=steps
+            new_n = x
+    return [new_n, max_steps]
+#Maximum number reached in the sequence for numbers up to n
+def max_max_num_reached(n):
+    max_reached = 0
+    new_n = 1
+    for x in range(1, n + 1):
+        max_num = max_num_reached(x)
+        if max_num > max_reached:
+            max_reached = max_num
+            new_n = x
+    return [new_n, max_reached]
