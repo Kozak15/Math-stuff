@@ -1,5 +1,5 @@
 #Some random math stuff in Python
-
+#Imma upload number base conversion and bal 3 string in the future
 import math
 # Numerical integration using the Riemann sum method
 def integral(a,b):
@@ -150,3 +150,4 @@ def max_max_num_reached(n):
             max_reached = max_num
             new_n = x
     return [new_n, max_reached]
+
